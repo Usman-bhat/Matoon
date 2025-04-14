@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "510453225712",
+    "firebase_url": "https://matoon-fd578-default-rtdb.firebaseio.com",
+    "project_id": "matoon-fd578",
+    "storage_bucket": "matoon-fd578.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510453225712:android:c18ad359c4cbcef4808a35",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHOoPhlDrZxn6pXLFo_LDSvhmYX6cjE1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
