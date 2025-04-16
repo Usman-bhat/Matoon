@@ -9,8 +9,8 @@ import 'package:myapp/screens/profile_screen.dart';
 // Import the generated file
 import 'firebase_options.dart';
 
-
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
   print("[DEBUG] Initializing Firebase...");
   try {
