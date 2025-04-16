@@ -32,11 +32,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("[DEBUG] Building MyApp widget...");
     return MaterialApp(
       title: 'Mathoon App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        brightness: Brightness.light,
+        fontFamily: 'Amiri',
+        textTheme: const TextTheme(
+          headlineMedium: TextStyle(fontFamily: 'Amiri', fontSize: 24),
+          titleLarge: TextStyle(fontFamily: 'Amiri', fontSize: 20),
+          titleMedium: TextStyle(fontFamily: 'Amiri', fontSize: 18),
+          bodyLarge: TextStyle(fontFamily: 'Amiri', fontSize: 16),
+          bodyMedium: TextStyle(fontFamily: 'Amiri', fontSize: 14),
+        ),
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        primarySwatch: Colors.blueGrey,
+        fontFamily: 'Amiri',
+        textTheme: const TextTheme(
+          headlineMedium: TextStyle(fontFamily: 'Amiri', fontSize: 24),
+          titleLarge: TextStyle(fontFamily: 'Amiri', fontSize: 20),
+          titleMedium: TextStyle(fontFamily: 'Amiri', fontSize: 18),
+          bodyLarge: TextStyle(fontFamily: 'Amiri', fontSize: 16),
+          bodyMedium: TextStyle(fontFamily: 'Amiri', fontSize: 14),
+        ),
       ),
       home: const MyHomePage(),
     );
@@ -68,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-     print("[DEBUG] Building MyHomePage scaffold with index: $_selectedIndex");
+    print("[DEBUG] Building MyHomePage scaffold with index: $_selectedIndex");
     return Scaffold(
       // The body will now display the widget based on the selected index
       body: Center(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/models/poem.dart';
+import 'package:myapp/screens/author_detail_screen.dart';
 import 'package:myapp/services/firebase_service.dart';
 import 'package:myapp/utils/text_parser.dart';
 
@@ -232,9 +233,28 @@ class _PoemDetailScreenState extends State<PoemDetailScreen> {
                       const Icon(Icons.person, size: 20),
                       const SizedBox(width: 8),
                       Expanded(
-                        child: Text(
-                          'Author: ${_authorName ?? 'Loading...'}',
-                          style: Theme.of(context).textTheme.titleMedium,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AuthorDetailScreen(
+                                  authorId: widget.poem.authorId,
+                                  authorName: _authorName ?? 'Loading...',
+                                ),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'Author: ${_authorName ?? 'Loading...'}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                  decoration: TextDecoration.underline,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                          ),
                         ),
                       ),
                     ],

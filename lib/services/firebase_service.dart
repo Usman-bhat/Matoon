@@ -58,12 +58,12 @@ class FirebaseService {
           .collection('poems')
           .doc(poemId)
           .get();
-      
+
       if (!doc.exists) {
         print("[ERROR] Poem document not found: $poemId");
         return '';
       }
-      
+
       // Try to get the full text first
       final text = doc.data()?['fullText'] as String?;
       if (text == null || text.isEmpty) {
@@ -75,7 +75,7 @@ class FirebaseService {
         }
         return fallbackText;
       }
-      
+
       return text;
     } catch (e) {
       print("[ERROR] Failed to load poem text: $e");
@@ -104,6 +104,36 @@ class FirebaseService {
         .doc(authorId)
         .get();
     return doc.data()?['name'] ?? 'Unknown Author';
+  }
+
+  Future<void> addAuthor(Author author) async {
+    try {
+      final docRef = await FirebaseFirestore.instance
+          .collection('authors')
+          .add(author.toJson());
+      print("[DEBUG] Author added with ID: ${docRef.id}");
+    } catch (e) {
+      print("[ERROR] Failed to add author: $e");
+      throw Exception('Failed to add author');
+    }
+  }
+
+  Future<Author> getAuthorById(String authorId) async {
+    try {
+      final doc = await FirebaseFirestore.instance
+          .collection('authors')
+          .doc(authorId)
+          .get();
+
+      if (!doc.exists) {
+        throw Exception('Author not found');
+      }
+
+      return Author.fromJson(doc.data()!, doc.id);
+    } catch (e) {
+      print("[ERROR] Failed to get author details: $e");
+      throw Exception('Failed to load author details');
+    }
   }
 
   // ----- Science Operations ----- //
